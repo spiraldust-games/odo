@@ -1,0 +1,8 @@
+/dev
+/dist
+node_modules
+.parcel-cache
+.parcel-cache-build
+.parcel-cache-dev
+.DS_Store
+.npmrc

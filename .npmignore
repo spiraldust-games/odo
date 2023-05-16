@@ -1,0 +1,13 @@
+# ignore all in root
+/*
+
+# make sure to ignore this
+.npmrc
+
+# but not these...
+!package.json
+!readme.md
+!LICENSE
+
+# include dist
+!/dist

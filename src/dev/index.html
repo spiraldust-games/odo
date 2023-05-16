@@ -1,0 +1,80 @@
+<!-- /* Only included for development purposes */ //-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Development for Odo</title>
+  <link rel="stylesheet" href="index-dev.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <input type="text" id="inputA" placeholder="Input your array of values here." />
+      <textarea id="inputB" placeholder="Input your object structure rules here."></textarea>
+    </div>
+    <div class="right">
+      <textarea id="outputC" readonly placeholder="Object Ouput"></textarea>
+      <div id="outputD"></div>
+    </div>
+  </div>
+  <script src="index-dev.js" type="module" defer="auto"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      let debounceTimeout;
+      let inputA = document.getElementById('inputA');
+      let inputB = document.getElementById('inputB');
+      let outputD = document.getElementById('outputD');
+
+      const testObject = new window.Odo();
+
+      function debounce(func, delay) {
+        clearTimeout(debounceTimeout);
+        debounceTimeout = setTimeout(func, delay);
+      }
+
+      function displayError(exception) {
+        outputD.innerHTML = `<h2>Errors</h2><p>${exception}</p>`;
+      }
+
+      function clearError() {
+        outputD.innerHTML = '';
+      }
+
+      function displayOutput(outputString) {
+        outputC.value = outputString;
+      }
+
+      function update() {
+        try {
+          const av = inputA.value || "[]";
+          const bv = inputB.value || "{}";
+          const a = `{"obj": ${av}}`;
+          const b = `({"obj": ${bv}})`;
+          const aa = JSON.parse(a);
+          const bb = eval(b);
+
+          testObject.setStructure(bb.obj);
+          testObject.setValues(aa.obj);
+
+          displayOutput(JSON.stringify(testObject.export(), null, 2));
+          clearError();
+
+          localStorage.setItem('inputA', av);
+          localStorage.setItem('inputB', bv);
+        } catch (exception) {
+          displayError(exception);
+        }
+      }
+
+      if (localStorage.getItem('inputA')) {
+        inputA.value = localStorage.getItem('inputA');
+      }
+      if (localStorage.getItem('inputB')) {
+        inputB.value = localStorage.getItem('inputB');
+      }
+
+      inputA.addEventListener('input', () => debounce(update, 500));
+      inputB.addEventListener('input', () => debounce(update, 500));
+    });
+  </script>
+</body>
+</html>

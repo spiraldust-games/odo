@@ -1,0 +1,56 @@
+/* Only included for development purposes */
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.left, .right {
+  width: 50%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+#inputA {
+  height: 30px;
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+#inputB {
+  flex-grow: 1;
+  resize: none;
+  padding: 1em;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#outputC, #outputD {
+  flex-grow: 1;
+  resize: none;
+  padding: 1em;
+}
+
+#outputD {
+  border: 1px dashed rgb(255, 109, 4);
+  margin-top: 1em;
+  padding: 1em;
+  color: red;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+#outputD h2, p {
+  margin: 0;
+}
