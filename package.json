@@ -30,7 +30,7 @@
     "build": "npm run lint && npm test && rimraf dist && parcel build --cache-dir .parcel-cache-build",
     "test": "jest",
     "lint": "eslint src",
-    "publish": "npm build"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
