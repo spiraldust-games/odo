@@ -21,6 +21,10 @@
       "distDir": "dist/index.mjs"
     }
   },
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
   "scripts": {
     "start": "rimraf dev && parcel --target dev --dist-dir dev --cache-dir .parcel-cache-dev",
     "build": "npm run lint && npm test && rimraf dist && parcel build --cache-dir .parcel-cache-build",
