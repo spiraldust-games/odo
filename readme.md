@@ -121,7 +121,7 @@ With these options, you can define complex structures while keeping the way you 
 To install Odo via npm, use the following command:
 
 ```bash
-npm i codelamp/odo --save
+npm i @spiraldust/odo --save
 ```
 
 ## Importing
