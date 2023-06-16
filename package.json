@@ -37,7 +37,7 @@
     "url": "git+https://github.com/spiraldust-games/odo.git"
   },
   "keywords": [
-    "[\"websockets\"]"
+    "websockets"
   ],
   "author": "Phil Glanville",
   "license": "MIT",
