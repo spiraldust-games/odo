@@ -2,7 +2,7 @@
 
 Odo is an object creator that decouples data values from their structural definition, providing a more efficient way to transmit data, especially over web sockets. By defining values as a simple flat array and describing the structure as offsets within this array, Odo makes it possible to optimize the transfer of information for different use cases.
 
-![Alt text](./odo-demo.gif?raw=true "Demo of how to use Odo" | width=370)
+![Demo of how to use Odo](./odo-demo.gif?raw=true | width=370)
 
 ## Why Odo?
 
